@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="/home/cweidenkeller/git/csharp-swift/bin/Release/csharp-swift.dll" total="28" errors="0" failures="0" not-run="28" inconclusive="0" ignored="28" skipped="0" invalid="0" date="2012-02-14" time="01:26:29">
+  <environment nunit-version="2.5.10.0" clr-version="4.0.30319.1" os-version="Unix 3.0.0.12" platform="Unix" cwd="/home/cweidenkeller/git/csharp-swift/bin/Release" machine-name="higgs" user="cweidenkeller" user-domain="higgs" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="/home/cweidenkeller/git/csharp-swift/bin/Release/csharp-swift.dll" executed="True" result="Success" success="True" time="0.228" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="Openstack" executed="True" result="Success" success="True" time="0.226" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Swift" executed="True" result="Success" success="True" time="0.226" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="Functional" executed="True" result="Inconclusive" success="False" time="0.044" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="Tests" executed="True" result="Inconclusive" success="False" time="0.044" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="TestClient" executed="False" result="Ignored">
+                        <reason>
+                          <message><![CDATA[]]></message>
+                        </reason>
+                        <results>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_delete_container" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_delete_container_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_delete_object" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_delete_object_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_get_account" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_get_account_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_get_auth" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_get_auth_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_get_container" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_get_container_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_get_object" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_get_object_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_head_account" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_head_account_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_head_container" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_head_container_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_head_object" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_head_object_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_post_account" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_post_account_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_post_container" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_post_container_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_post_object" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_post_object_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_put_container" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_put_container_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_put_object" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="Openstack.Swift.Functional.Tests.TestClient.test_put_object_fail" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[]]></message>
+                            </reason>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+              <test-suite type="Namespace" name="Unit" executed="True" result="Success" success="True" time="0.172" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="0.172" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="TestClient" executed="True" result="Success" success="True" time="0.171" asserts="0">
+                        <results>
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_delete_container" executed="True" result="Success" success="True" time="0.143" asserts="2" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_delete_container_fail" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_delete_object" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_delete_object_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_get_account" executed="True" result="Success" success="True" time="0.002" asserts="13" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_get_account_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_get_auth" executed="True" result="Success" success="True" time="0.002" asserts="12" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_get_auth_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_get_container" executed="True" result="Success" success="True" time="0.001" asserts="13" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_get_container_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_get_object" executed="True" result="Success" success="True" time="0.003" asserts="11" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_get_object_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_head_account" executed="True" result="Success" success="True" time="0.000" asserts="10" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_head_account_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_head_container" executed="True" result="Success" success="True" time="0.000" asserts="8" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_head_container_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_head_object" executed="True" result="Success" success="True" time="0.001" asserts="10" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_head_object_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_post_account" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_post_account_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_post_container" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_post_container_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_post_object" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_post_object_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_put_container" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_put_container_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_put_object" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                          <test-case name="Openstack.Swift.Unit.Tests.TestClient.test_put_object_fail" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -1,0 +1,586 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>/home/cweidenkeller/git/csharp-swift/bin/Release/csharp-swift</name>
+    </assembly>
+    <members>
+        <member name="T:Openstack.Swift.OperationCompleteCallback">
+            <summary>
+            This delegate should be used to signal when <see cref="M:Openstack.Swift.Client.PutObject(System.String,System.String,System.String,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})" /> completes uploading an object.
+            </summary>
+        </member>
+        <member name="T:Openstack.Swift.ProgressCallback">
+            <summary>
+            This delegate should be used to signal bytes written by <see cref="M:Openstack.Swift.Client.PutObject(System.String,System.String,System.String,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})" />.
+            </summary>
+        </member>
+        <member name="T:Openstack.Swift.ClientException">
+            <summary>
+            ClientException is thrown by <see cref="T:Openstack.Swift.Client" /></summary>
+        </member>
+        <member name="M:Openstack.Swift.ClientException.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Openstack.Swift.ClientException" /> class.
+            </summary>
+            <param name="message">
+            A <see cref="T:System.String" /> The exception message.
+            </param>
+            <param name="status">
+            A <see cref="T:System.Int32" /> that is the status code from the responding server.
+            </param>
+        </member>
+        <member name="F:Openstack.Swift.ClientException.Status">
+            <summary>
+            Returns the HTTP Status Code from the response server.
+            </summary>
+        </member>
+        <member name="T:Openstack.Swift.Client">
+            <summary>
+            Client.
+            </summary>
+        </member>
+        <member name="M:Openstack.Swift.Client.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Openstack.Swift.Client" /> class.
+            </summary>
+        </member>
+        <member name="M:Openstack.Swift.Client.#ctor(Openstack.Swift.IHttpRequestFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Openstack.Swift.Client" /> class.
+            </summary>
+            <param name="http_factory">
+            Implement the <see cref="T:Openstack.Swift.IHttpRequestFactory" /> interface for a custom HttpRequestFactory.
+            </param>
+        </member>
+        <member name="F:Openstack.Swift.Client.Timeout">
+            <summary>
+            Used to configure the http response timeout.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.Client.ChunkSize">
+            <summary>
+            Set for chunk sizes on <see cref="M:Openstack.Swift.Client.PutObject(System.String,System.String,System.String,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})" /> and <see cref="M:Openstack.Swift.Client.GetObject(System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})" />.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.Client.OperationComplete">
+            <summary>
+            Set me if you would like to be notified when PutObject completes.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.Client.Progress">
+            <summary>
+            Set me if you would like to have the bytes written passed back to you.
+            </summary>
+        </member>
+        <member name="M:Openstack.Swift.Client.DisableSSLCertificateValidation">
+            <summary>
+            Disables SSL certificate validation.
+            </summary>
+        </member>
+        <member name="M:Openstack.Swift.Client.GetAuth(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean)">
+            <summary>
+            Gets Your Auth Info.
+            </summary>
+            <returns>
+                <paramref name="Openstack.Swift.AuthResponse" />
+            </returns>
+            <param name="url">
+                <see cref="T:System.String" /> of the Storage Url you would like to make a request to.
+            </param>
+            <param name="user">
+                <see cref="T:System.String" /> Your username
+            </param>
+            <param name="key">
+                <see cref="T:System.String" /> Your ApiKey
+            </param>
+            <param name="headers">
+                <see cref="T:System.Collections.Generic.Dictionary{string,string}" /> Custom headers for your request.
+            </param>
+            <param name="query">
+                <see cref="T:System.Collections.Generic.Dictionary{string,string}" /> Custom query strings used for your request.
+            </param>
+            <param name="snet">
+                <see cref="T:System.Boolean" />
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.GetAccount(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean)">
+            <summary>
+            Gets the account.
+            </summary>
+            <returns>
+            The account.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+            <param name="full_listing">
+            Full_listing.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.HeadAccount(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Heads the account.
+            </summary>
+            <returns>
+            The account.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.PostAccount(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Posts the account.
+            </summary>
+            <returns>
+            The account.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.GetContainer(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean)">
+            <summary>
+            Gets the container.
+            </summary>
+            <returns>
+            The container.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+            <param name="full_listing">
+            Full_listing.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.HeadContainer(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Heads the container.
+            </summary>
+            <returns>
+            The container.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.PutContainer(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Puts the container.
+            </summary>
+            <returns>
+            The container.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.PostContainer(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Posts the container.
+            </summary>
+            <returns>
+            The container.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.DeleteContainer(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Deletes the container.
+            </summary>
+            <returns>
+            The container.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.GetObject(System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Gets the object.
+            </summary>
+            <returns>
+            The object.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="name">
+            Name.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.HeadObject(System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Heads the object.
+            </summary>
+            <returns>
+            The object.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="name">
+            Name.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.PostObject(System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Posts the object.
+            </summary>
+            <returns>
+            The object.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="name">
+            Name.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.PutObject(System.String,System.String,System.String,System.String,System.IO.Stream,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Puts the object.
+            </summary>
+            <returns>
+            The object.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="name">
+            Name.
+            </param>
+            <param name="contents">
+            Contents.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="M:Openstack.Swift.Client.DeleteObject(System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Deletes the object.
+            </summary>
+            <returns>
+            The object.
+            </returns>
+            <param name="url">
+            URL.
+            </param>
+            <param name="token">
+            Token.
+            </param>
+            <param name="container">
+            Container.
+            </param>
+            <param name="name">
+            Name.
+            </param>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="query">
+            Query.
+            </param>
+        </member>
+        <member name="T:Openstack.Swift.IClient">
+            <summary>
+            I client.
+            </summary>
+        </member>
+        <member name="T:Openstack.Swift.AuthResponse">
+            <summary>
+            Auth response.
+            </summary>
+        </member>
+        <member name="M:Openstack.Swift.AuthResponse.#ctor(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Openstack.Swift.AuthResponse" /> class.
+            </summary>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="reason">
+            Reason.
+            </param>
+            <param name="status">
+            Status.
+            </param>
+        </member>
+        <member name="F:Openstack.Swift.AuthResponse.Headers">
+            <summary>
+            The headers.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.AuthResponse.Status">
+            <summary>
+            The status.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.AuthResponse.Reason">
+            <summary>
+            The reason.
+            </summary>
+        </member>
+        <member name="T:Openstack.Swift.AccountResponse">
+            <summary>
+            Account response.
+            </summary>
+        </member>
+        <member name="M:Openstack.Swift.AccountResponse.#ctor(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32,System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Openstack.Swift.AccountResponse" /> class.
+            </summary>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="reason">
+            Reason.
+            </param>
+            <param name="status">
+            Status.
+            </param>
+            <param name="containers">
+            Containers.
+            </param>
+        </member>
+        <member name="F:Openstack.Swift.AccountResponse.Headers">
+            <summary>
+            The headers.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.AccountResponse.Status">
+            <summary>
+            The status.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.AccountResponse.Reason">
+            <summary>
+            The reason.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.AccountResponse.Containers">
+            <summary>
+            The containers.
+            </summary>
+        </member>
+        <member name="T:Openstack.Swift.ContainerResponse">
+            <summary>
+            Container response.
+            </summary>
+        </member>
+        <member name="M:Openstack.Swift.ContainerResponse.#ctor(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32,System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Openstack.Swift.ContainerResponse" /> class.
+            </summary>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="reason">
+            Reason.
+            </param>
+            <param name="status">
+            Status.
+            </param>
+            <param name="objects">
+            Objects.
+            </param>
+        </member>
+        <member name="F:Openstack.Swift.ContainerResponse.Headers">
+            <summary>
+            The headers.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.ContainerResponse.Status">
+            <summary>
+            The status.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.ContainerResponse.Reason">
+            <summary>
+            The reason.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.ContainerResponse.Objects">
+            <summary>
+            The objects.
+            </summary>
+        </member>
+        <member name="T:Openstack.Swift.ObjectResponse">
+            <summary>
+            Object response.
+            </summary>
+        </member>
+        <member name="M:Openstack.Swift.ObjectResponse.#ctor(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32,System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Openstack.Swift.ObjectResponse" /> class.
+            </summary>
+            <param name="headers">
+            Headers.
+            </param>
+            <param name="reason">
+            Reason.
+            </param>
+            <param name="status">
+            Status.
+            </param>
+            <param name="object_data">
+            Object_data.
+            </param>
+        </member>
+        <member name="F:Openstack.Swift.ObjectResponse.Headers">
+            <summary>
+            The headers.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.ObjectResponse.Status">
+            <summary>
+            The status.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.ObjectResponse.Reason">
+            <summary>
+            The reason.
+            </summary>
+        </member>
+        <member name="F:Openstack.Swift.ObjectResponse.ObjectData">
+            <summary>
+            The object data.
+            </summary>
+        </member>
+    </members>
+</doc>
