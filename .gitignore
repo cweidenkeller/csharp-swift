@@ -1,2 +1,4 @@
 test-results
 bin
+*.pidb
+.userprefs
