@@ -5,8 +5,8 @@ using System.Text;
 using System.IO;
 using System.Threading;
 using NUnit.Framework;
-using Openstack.Swift;
-namespace Openstack.Swift.Unit.Tests
+using OpenStack.Swift;
+namespace OpenStack.Swift.Unit.Tests
 {
 	[TestFixture]
 	public class TestClient
