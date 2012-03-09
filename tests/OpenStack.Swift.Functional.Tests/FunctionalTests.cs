@@ -6,8 +6,8 @@ using System.Text;
 using System.IO;
 using System.Threading;
 using NUnit.Framework;
-using Openstack.Swift;
-namespace Openstack.Swift.Functional.Tests
+using OpenStack.Swift;
+namespace OpenStack.Swift.Functional.Tests
 {
     [TestFixture]
 	public class TestClient
@@ -58,14 +58,6 @@ namespace Openstack.Swift.Functional.Tests
 		private List<Dictionary<string, string>> created_objects = new List<Dictionary<string, string>>();
 		private List<string> created_containers = new List<string>();
 		private SwiftClient client = new SwiftClient();
-		[TestFixtureSetUp]
-		public void fixturesetup()
-		{
-			if(!bool.Parse(ConfigurationManager.AppSettings["RunFunctionalTests"]))
-			{
-				Assert.Ignore();
-			}
-		}
 		[SetUp]
 		public void setup()
 		{

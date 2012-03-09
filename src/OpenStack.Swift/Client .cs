@@ -8,8 +8,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml;
 using System.Web;
 using System.Text;
-using Openstack.Swift;
-namespace Openstack.Swift
+using OpenStack.Swift;
+namespace OpenStack.Swift
 {   
 	/// <summary>
     /// This delegate should be used to signal when <see cref="Openstack.Swift.Client.PutObject"/> completes uploading an object.
@@ -83,7 +83,7 @@ namespace Openstack.Swift
 		}
 		private string _encode(string string_to_encode)
 		{
-			return HttpUtility.UrlEncode(string_to_encode);
+			return HttpUtility.UrlPathEncode(string_to_encode);
 		}
 		private bool _validator (object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
 	    {
