@@ -1,35 +1,32 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using System.Threading;
 using NUnit.Framework;
-using OpenStack.Swift;
+
 namespace OpenStack.Swift.Unit.Tests
 {
 	[TestFixture]
 	public class TestClient
 	{
-		private SwiftClient _client = new SwiftClient(new FakeHttpRequestFactory());
+		private readonly SwiftClient _client = new SwiftClient(new FakeHttpRequestFactory());
 		private Dictionary<string, string> _headers = new Dictionary<string, string>();
 		[SetUp]
 		public void setup()
 		{
-            this._headers = new Dictionary<string, string>();
+            _headers = new Dictionary<string, string>();
 		}
 		[Test]
 		public void test_get_auth()
 		{
-			this._headers.Add("request-type", "auth");
-			AuthResponse res = this._client.GetAuth("", "", "", this._headers, new Dictionary<string, string>(), false);
+			_headers.Add("request-type", "auth");
+			AuthResponse res = _client.GetAuth("", "", "", _headers, new Dictionary<string, string>(), false);
 			Assert.True(res.Headers.ContainsKey("x-auth-token"));
 			Assert.True(res.Headers["x-auth-token"] == "foo");
 			Assert.True(res.Headers.ContainsKey("x-storage-url"));
 			Assert.True(res.Headers["x-storage-url"] == "https://foo.com");
 			Assert.True(res.Reason == "foo");
 			Assert.True(res.Status == 201);
-			res = this._client.GetAuth("", "", "", this._headers, new Dictionary<string, string>(), true);
+			res = _client.GetAuth("", "", "", _headers, new Dictionary<string, string>(), true);
 			Assert.True(res.Headers.ContainsKey("x-auth-token"));
 			Assert.True(res.Headers["x-auth-token"] == "foo");
 			Assert.True(res.Headers.ContainsKey("x-storage-url"));
@@ -41,14 +38,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_get_auth_fail()
 		{
-		    this._headers.Add("request-type", "auth-fail");
-			this._client.GetAuth("", "", "", this._headers, new Dictionary<string, string>(), false);
+		    _headers.Add("request-type", "auth-fail");
+			_client.GetAuth("", "", "", _headers, new Dictionary<string, string>(), false);
 		}
 		[Test]
 		public void test_get_account()
 		{
-			this._headers.Add("request-type", "account");
-			AccountResponse res = this._client.GetAccount("", "", this._headers, new Dictionary<string, string>(), false);
+			_headers.Add("request-type", "account");
+			AccountResponse res = _client.GetAccount("", "", _headers, new Dictionary<string, string>(), false);
 			Assert.True(res.Headers.ContainsKey("x-account-container-count"));
 			Assert.True(res.Headers["x-account-container-count"] == "1");
 			Assert.True(res.Headers.ContainsKey("x-account-object-count"));
@@ -67,14 +64,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[Test]
 		public void test_get_account_fail()         
 		{
-			this._headers.Add("request-type", "account-fail");
-			this._client.GetAccount("", "", this._headers, new Dictionary<string, string>(), false);
+			_headers.Add("request-type", "account-fail");
+			_client.GetAccount("", "", _headers, new Dictionary<string, string>(), false);
 		}
 		[Test]
 		public void test_head_account()
 		{
-			this._headers.Add("request-type", "account");
-			AccountResponse res = this._client.HeadAccount("", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "account");
+			AccountResponse res = _client.HeadAccount("", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Headers.ContainsKey("x-account-container-count"));
 			Assert.True(res.Headers["x-account-container-count"] == "1");
 			Assert.True(res.Headers.ContainsKey("x-account-object-count"));
@@ -90,14 +87,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_head_account_fail()
 		{
-		    this._headers.Add("request-type", "account-fail");
-			this._client.HeadAccount("", "", this._headers, new Dictionary<string, string>());
+		    _headers.Add("request-type", "account-fail");
+			_client.HeadAccount("", "", _headers, new Dictionary<string, string>());
 		}
 		[Test]
 		public void test_post_account()
 		{
-			this._headers.Add("request-type", "account");
-			AccountResponse res = this._client.PostAccount("", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "account");
+			AccountResponse res = _client.PostAccount("", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Reason == "foo");
 			Assert.True(res.Status == 201);
 		}
@@ -105,14 +102,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_post_account_fail()
 		{
-			this._headers.Add("request-type", "account-fail");
-			this._client.PostAccount("", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "account-fail");
+			_client.PostAccount("", "", _headers, new Dictionary<string, string>());
 		}
 		[Test]
 		public void test_get_container()
 		{
-			this._headers.Add("request-type", "container");
-			ContainerResponse res = this._client.GetContainer("", "", "", this._headers, new Dictionary<string, string>(), false);
+			_headers.Add("request-type", "container");
+			ContainerResponse res = _client.GetContainer("", "", "", _headers, new Dictionary<string, string>(), false);
 			Assert.True(res.Headers.ContainsKey("x-container-object-count"));
 			Assert.True(res.Headers["x-container-object-count"] == "1");
 			Assert.True(res.Headers.ContainsKey("x-container-bytes-used"));
@@ -131,14 +128,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_get_container_fail()
 		{
-			this._headers.Add("request-type", "container-fail");
-			this._client.GetContainer("", "", "", this._headers, new Dictionary<string, string>(), false);
+			_headers.Add("request-type", "container-fail");
+			_client.GetContainer("", "", "", _headers, new Dictionary<string, string>(), false);
 		}
 		[Test]
 		public void test_head_container()
 		{
-			this._headers.Add("request-type", "container");
-			ContainerResponse res = this._client.HeadContainer("", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "container");
+			ContainerResponse res = _client.HeadContainer("", "", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Headers.ContainsKey("x-container-object-count"));
 			Assert.True(res.Headers["x-container-object-count"] == "1");
 			Assert.True(res.Headers.ContainsKey("x-container-bytes-used"));
@@ -152,15 +149,15 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_head_container_fail()
     	{
-			this._headers.Add("request-type", "container-fail");
-			this._client.HeadContainer("", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "container-fail");
+			_client.HeadContainer("", "", "", _headers, new Dictionary<string, string>());
 		}
 
 		[Test]
 		public void test_post_container()
 		{
-			this._headers.Add("request-type", "container");
-			ContainerResponse res = this._client.PostContainer("", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "container");
+			ContainerResponse res = _client.PostContainer("", "", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Reason == "foo");
 			Assert.True(res.Status == 201);
 		}
@@ -168,14 +165,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_post_container_fail()
 		{
-			this._headers.Add("request-type", "container-fail");
-			this._client.PostContainer("", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "container-fail");
+			_client.PostContainer("", "", "", _headers, new Dictionary<string, string>());
 		}
 		[Test]
 		public void test_put_container()
 		{
-			this._headers.Add("request-type", "container");
-			ContainerResponse res = this._client.PutContainer("", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "container");
+			ContainerResponse res = _client.PutContainer("", "", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Reason == "foo");
 			Assert.True(res.Status == 201);
 		}
@@ -183,14 +180,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_put_container_fail()
 		{
-			this._headers.Add("request-type", "container-fail");
-			this._client.PutContainer("" , "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "container-fail");
+			_client.PutContainer("" , "", "", _headers, new Dictionary<string, string>());
 		}
 		[Test]
 		public void test_delete_container()
 		{
-		    this._headers.Add("request-type", "container");
-			ContainerResponse res = this._client.DeleteContainer("", "", "", this._headers, new Dictionary<string, string>());
+		    _headers.Add("request-type", "container");
+			ContainerResponse res = _client.DeleteContainer("", "", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Reason == "foo");
 			Assert.True(res.Status == 201);
 		}
@@ -198,14 +195,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_delete_container_fail()
 		{
-			this._headers.Add("request-type", "container-fail");
-			this._client.DeleteContainer("" , "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "container-fail");
+			_client.DeleteContainer("" , "", "", _headers, new Dictionary<string, string>());
 		}
 		[Test]
 		public void test_get_object()
 		{
-			this._headers.Add("request-type", "object");
-			ObjectResponse res = this._client.GetObject("", "", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object");
+			ObjectResponse res = _client.GetObject("", "", "", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Headers.ContainsKey("content-length"));
 			Assert.True(res.Headers["content-length"] == "1");
 			Assert.True(res.Headers.ContainsKey("content-type"));
@@ -222,14 +219,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_get_object_fail()
 		{
-			this._headers.Add("request-type", "object-fail");
-			this._client.GetObject("", "", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object-fail");
+			_client.GetObject("", "", "", "", _headers, new Dictionary<string, string>());
 		}
 		[Test]
 		public void test_head_object()
 		{
-			this._headers.Add("request-type", "object");
-			ObjectResponse res = this._client.HeadObject("", "", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object");
+			ObjectResponse res = _client.HeadObject("", "", "", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Headers.ContainsKey("content-length"));
 			Assert.True(res.Headers["content-length"] == "1");
 			Assert.True(res.Headers.ContainsKey("content-type"));
@@ -245,14 +242,14 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_head_object_fail()
     	{
-			this._headers.Add("request-type", "object-fail");
-			this._client.HeadObject("", "", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object-fail");
+			_client.HeadObject("", "", "", "", _headers, new Dictionary<string, string>());
 		}
 		[Test]
 		public void test_post_object()
 		{
-			this._headers.Add("request-type", "object");
-			ObjectResponse res = this._client.PostObject("", "", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object");
+			ObjectResponse res = _client.PostObject("", "", "", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Reason == "foo");
 			Assert.True(res.Status == 201);
 		}
@@ -260,15 +257,15 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_post_object_fail()
 		{
-			this._headers.Add("request-type", "object-fail");
-		    this._client.PostObject("", "", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object-fail");
+		    _client.PostObject("", "", "", "", _headers, new Dictionary<string, string>());
 		}
 		[Test]
 		public void test_put_object()
 		{
-			this._headers.Add("request-type", "object");
-			MemoryStream stream = new MemoryStream();
-			ObjectResponse res = this._client.PutObject("", "", "", "", stream, this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object");
+			var stream = new MemoryStream();
+			ObjectResponse res = _client.PutObject("", "", "", "", stream, _headers, new Dictionary<string, string>());
 			Assert.True(res.Reason == "foo");
 			Assert.True(res.Status == 201);
 		}
@@ -276,15 +273,15 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_put_object_fail()
 		{
-			this._headers.Add("request-type", "object-fail");
-			MemoryStream stream = new MemoryStream();
-			this._client.PutObject("", "", "", "", stream, this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object-fail");
+			var stream = new MemoryStream();
+			_client.PutObject("", "", "", "", stream, _headers, new Dictionary<string, string>());
 		}
 		[Test]
 		public void test_delete_object()
 		{
-			this._headers.Add("request-type", "object");
-			ObjectResponse res = this._client.DeleteObject("", "", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object");
+			ObjectResponse res = _client.DeleteObject("", "", "", "", _headers, new Dictionary<string, string>());
 			Assert.True(res.Reason == "foo");
 			Assert.True(res.Status == 201);
 		}
@@ -292,8 +289,8 @@ namespace OpenStack.Swift.Unit.Tests
 		[ExpectedException(typeof(ClientException))]
 		public void test_delete_object_fail()
 		{
-			this._headers.Add("request-type", "object-fail");
-			this._client.DeleteObject("", "", "", "", this._headers, new Dictionary<string, string>());
+			_headers.Add("request-type", "object-fail");
+			_client.DeleteObject("", "", "", "", _headers, new Dictionary<string, string>());
 		}
 	}
     public class FakeHttpRequestFactory : IHttpRequestFactory
@@ -307,11 +304,11 @@ namespace OpenStack.Swift.Unit.Tests
     {
         public FakeHttpRequest(string method, Dictionary<string, string> headers)
 	    {
-		    this._headers = headers;
-			this._method = method;
+		    _headers = headers;
+			_method = method;
 		}
-		private Dictionary<string, string> _headers;
-		private string _method;
+		private readonly Dictionary<string, string> _headers;
+		private readonly string _method;
         public bool AllowWriteStreamBuffering{ set; get; }
 		public bool SendChunked { set; get; }
 		public long ContentLength { set; get; }
@@ -321,19 +318,19 @@ namespace OpenStack.Swift.Unit.Tests
 		}
 		public IHttpResponse GetResponse()
 		{
-		    return new FakeHttpResponse(this._method, this._headers);
+		    return new FakeHttpResponse(_method, _headers);
 		}
     }
     public class FakeHttpResponse : IHttpResponse
     {
-		private int _status = -1;
-		public int Status { get { return this._status; } }
-		private string _reason = "foo";
-		public string Reason { get { return this._reason; } }
-	    private Stream _stream;
-		public Stream ResponseStream { get {return this._stream;} }
-	    private Dictionary<string, string> _headers = new Dictionary<string, string>();
-		public Dictionary<string, string> Headers { get {return this._headers;} }
+		private readonly int _status = -1;
+		public int Status { get { return _status; } }
+        private const string _reason = "foo";
+        public string Reason { get { return _reason; } }
+	    private readonly Stream _stream;
+		public Stream ResponseStream { get {return _stream;} }
+	    private readonly Dictionary<string, string> _headers = new Dictionary<string, string>();
+		public Dictionary<string, string> Headers { get {return _headers;} }
 		public void Close() {}
 	    public FakeHttpResponse(string method, Dictionary<string, string> headers)
 		{
@@ -345,9 +342,9 @@ namespace OpenStack.Swift.Unit.Tests
 				    {
 				        case "auth":
 				        {
-					        this._status = 201;
-					        this._headers.Add("x-auth-token", "foo");
-					        this._headers.Add("x-storage-url", "https://foo.com");
+					        _status = 201;
+					        _headers.Add("x-auth-token", "foo");
+					        _headers.Add("x-storage-url", "https://foo.com");
 					        break;
 				        }
 				        case "auth-fail":
@@ -356,12 +353,12 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "account":
 				        {
-					        this._status = 200;
-					        this._headers.Add("x-account-meta-foo", "foo");
-					        this._headers.Add("x-account-object-count", "1");
-					        this._headers.Add("x-account-container-count", "1");
-					        this._headers.Add("x-account-bytes-used", "1");
-					        this._stream = this._to_stream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + 
+					        _status = 200;
+					        _headers.Add("x-account-meta-foo", "foo");
+					        _headers.Add("x-account-object-count", "1");
+					        _headers.Add("x-account-container-count", "1");
+					        _headers.Add("x-account-bytes-used", "1");
+					        _stream = _to_stream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + 
 						                                   "<account name=\"foo\">\n" + 
 						                                   "<container><name>foo</name><count>1</count><bytes>1</bytes></container>\n</account>");
 				            break;
@@ -372,11 +369,11 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "container":
 				        {
-					        this._status = 200;
-					        this._headers.Add("x-container-meta-foo", "foo");
-					        this._headers.Add("x-container-object-count", "1");
-					        this._headers.Add("x-container-bytes-used", "1");
-					        this._stream = this._to_stream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+					        _status = 200;
+					        _headers.Add("x-container-meta-foo", "foo");
+					        _headers.Add("x-container-object-count", "1");
+					        _headers.Add("x-container-bytes-used", "1");
+					        _stream = _to_stream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                                                            "<container name=\"foo\">\n" + 
 						                                   "<object><name>foo</name>" +
 						                                   "<hash>foo</hash>" +
@@ -393,12 +390,12 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "object":
 				        {
-					        this._status = 200;
-					        this._headers.Add("x-object-meta-foo", "foo");
-					        this._headers.Add("content-length", "1");
-					        this._headers.Add("content-type", "foo/foobar");
-					        this._headers.Add("etag", "foo");
-					        this._stream = this._to_stream("foo");
+					        _status = 200;
+					        _headers.Add("x-object-meta-foo", "foo");
+					        _headers.Add("content-length", "1");
+					        _headers.Add("content-type", "foo/foobar");
+					        _headers.Add("etag", "foo");
+					        _stream = _to_stream("foo");
 				            break;
 				        }
 				        case "object-fail":
@@ -414,7 +411,7 @@ namespace OpenStack.Swift.Unit.Tests
 				    {
 				        case "account":
 				        {
-					        this._status = 201;
+					        _status = 201;
 					        break;
 					    }
 					    case "account-fail":
@@ -423,7 +420,7 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "container":
 				        {
-					        this._status = 201;
+					        _status = 201;
 				            break;
 				        }
 				        case "container-fail":
@@ -432,7 +429,7 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "object":
 				        {
-					        this._status = 201;
+					        _status = 201;
 				            break;
 				        }
 				        case "object-fail":
@@ -448,11 +445,11 @@ namespace OpenStack.Swift.Unit.Tests
 				    {
 				        case "account":
 				        {
-					        this._status = 201;
-					        this._headers.Add("x-account-object-count", "1");
-					        this._headers.Add("x-account-meta-foo", "foo");
-					        this._headers.Add("x-account-container-count", "1");
-					        this._headers.Add("x-account-bytes-used", "1");
+					        _status = 201;
+					        _headers.Add("x-account-object-count", "1");
+					        _headers.Add("x-account-meta-foo", "foo");
+					        _headers.Add("x-account-container-count", "1");
+					        _headers.Add("x-account-bytes-used", "1");
 				            break;
 				        }
 				        case "account-fail":
@@ -461,10 +458,10 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "container":
 				        {
-					        this._status = 201;
-					        this._headers.Add("x-container-meta-foo", "foo");
-					        this._headers.Add("x-container-object-count", "1");
-					        this._headers.Add("x-container-bytes-used", "1");
+					        _status = 201;
+					        _headers.Add("x-container-meta-foo", "foo");
+					        _headers.Add("x-container-object-count", "1");
+					        _headers.Add("x-container-bytes-used", "1");
 				            break;
 				        }
 				        case "container-fail":
@@ -473,11 +470,11 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "object":
 				        {
-					        this._status = 201;
-					        this._headers.Add("x-object-meta-foo", "foo");
-					        this._headers.Add("etag", "foo");
-					        this._headers.Add("content-length", "1");
-					        this._headers.Add("content-type", "foo/foobar");
+					        _status = 201;
+					        _headers.Add("x-object-meta-foo", "foo");
+					        _headers.Add("etag", "foo");
+					        _headers.Add("content-length", "1");
+					        _headers.Add("content-type", "foo/foobar");
 				            break;
 				        }
 				        case "object-fail":
@@ -493,7 +490,7 @@ namespace OpenStack.Swift.Unit.Tests
 				    {
 				        case "account":
 				        {
-					        this._status = 201;
+					        _status = 201;
 				            break;
 				        }
 				        case "account-fail":
@@ -502,7 +499,7 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "container":
 				        {
-					        this._status = 201;
+					        _status = 201;
 				            break;
 				        }
 				        case "container-fail":
@@ -511,7 +508,7 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "object":
 				        {
-					        this._status = 201;
+					        _status = 201;
 				            break;
 				        }
 				        case "object-fail":
@@ -527,7 +524,7 @@ namespace OpenStack.Swift.Unit.Tests
 				    {
 				        case "account":
 				        {
-					        this._status = 201;
+					        _status = 201;
 				            break;
 				        }
 				        case "account-fail":
@@ -536,7 +533,7 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "container":
 				        {
-					        this._status = 201;
+					        _status = 201;
 				            break;
 				        }
 				        case "container-fail":
@@ -545,7 +542,7 @@ namespace OpenStack.Swift.Unit.Tests
 				        }
 				        case "object":
 				        {
-					        this._status = 201;
+					        _status = 201;
 				            break;
 				        }
 				        case "object-fail":
