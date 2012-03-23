@@ -691,6 +691,8 @@ namespace OpenStack.Swift
 	}
 	public class HttpRequest : IHttpRequest
 	{
+	    private const int MillisecondsInOneHour = 60 * 60 * 1000;
+
 		public bool AllowWriteStreamBuffering
 		{ 
 			set { _request.AllowWriteStreamBuffering = value; }
@@ -706,10 +708,17 @@ namespace OpenStack.Swift
 			set { _request.ContentLength = value; }
 			get { return _request.ContentLength; }
 		}
+	    public int Timeout
+	    {
+            set { _request.Timeout = value; }
+            get { return _request.Timeout; }
+	    }
 		private readonly HttpWebRequest _request;
 		public HttpRequest(string method, string url, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
-		    _request = (HttpWebRequest) WebRequest.Create(url + _add_query(query));
+		    var uriQuery = query != null && query.Count > 0 ? _add_query(query) : "";
+		    _request = (HttpWebRequest) WebRequest.Create(url + uriQuery);
+            Timeout = MillisecondsInOneHour;
 			_add_headers(headers);
 			_request.Method = method;
 		}
@@ -726,7 +735,7 @@ namespace OpenStack.Swift
 					throw new ClientException("Timeout!", -1);
 				}
 			    
-                throw new ClientException("Error: " + _request.RequestUri + " Unable to " + _request.Method + " " + ((HttpWebResponse)e.Response).StatusCode.ToString(), (int)((HttpWebResponse)e.Response).StatusCode);
+                throw new ClientException("Error: " + _request.RequestUri + " Unable to " + _request.Method + " " + ((HttpWebResponse)e.Response).StatusCode, (int)((HttpWebResponse)e.Response).StatusCode);
 			}
 		}
 		public Stream GetRequestStream()
@@ -754,7 +763,7 @@ namespace OpenStack.Swift
 		}
 	    private void _add_headers(Dictionary<string, string> headers)
 		{
-			foreach (KeyValuePair<string, string> header in headers)
+			foreach (var header in headers)
 			{
 				switch (header.Key.ToLower())
 				{

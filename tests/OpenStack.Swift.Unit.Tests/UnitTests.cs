@@ -15,11 +15,21 @@ namespace OpenStack.Swift.Unit.Tests
 		{
             _headers = new Dictionary<string, string>();
 		}
+        [Test]
+        public void test_default_http_request_timeout_is_one_hour()
+        {
+            var httpRequest = new HttpRequest(
+                "GET", 
+                "http://tinyurl.com", 
+                new Dictionary<string, string>(), 
+                new Dictionary<string, string>());
+            Assert.That(httpRequest.Timeout, Is.EqualTo(3600000));
+        }
 		[Test]
 		public void test_get_auth()
 		{
 			_headers.Add("request-type", "auth");
-			AuthResponse res = _client.GetAuth("", "", "", _headers, new Dictionary<string, string>(), false);
+			var res = _client.GetAuth("", "", "", _headers, new Dictionary<string, string>(), false);
 			Assert.True(res.Headers.ContainsKey("x-auth-token"));
 			Assert.True(res.Headers["x-auth-token"] == "foo");
 			Assert.True(res.Headers.ContainsKey("x-storage-url"));
