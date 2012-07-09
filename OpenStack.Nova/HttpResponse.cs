@@ -22,7 +22,8 @@ namespace OpenStack.Nova
 		}
 		public Dictionary<string, string> Headers 
 		{ 
-			//Return null if _response is null. If not null and headers have been processed return them or process them and return them.
+			//Return null if _response is null. If non-null and headers have been processed, just return them.
+			// Else process  headers and return them.
 			get { return _response == null ? null : (_processed_headers ?? _process_headers()); } 
 		}
 		private readonly HttpWebResponse _response;
