@@ -15,7 +15,7 @@ namespace OpenStack.Nova
     public delegate void OperationCompleteCallback();
 
     /// <summary>
-    /// This delegate should be used to signal bytes written by <see><cref>Openstack.Swift.Client.PutObject</cref></see> .
+    /// This delegate should be used to signal bytes written by <see><cref>Openstack.Nova.Client.CreateImage</cref></see> .
     /// </summary>
     public delegate void ProgressCallback(int bytes_written);
 
