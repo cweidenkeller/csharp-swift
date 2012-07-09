@@ -36,7 +36,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Client.cs" />
     <Compile Include="AbstractClient.cs" />
     <Compile Include="ClientException.cs" />
     <Compile Include="AuthResponse.cs" />
@@ -49,6 +48,7 @@
     <Compile Include="HttpRequest.cs" />
     <Compile Include="HttpResponse.cs" />
     <Compile Include="HttpRequestFactory.cs" />
+    <Compile Include="NovaClient.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
