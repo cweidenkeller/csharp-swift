@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		csharp-swift.nuspec = csharp-swift.nuspec
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack.Nova", "OpenStack.Nova\OpenStack.Nova.csproj", "{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -22,20 +24,49 @@ Global
 		{2DA4B272-55B0-4D72-89EB-C80327A2E003}.Debug|x86.Build.0 = Debug|Any CPU
 		{2DA4B272-55B0-4D72-89EB-C80327A2E003}.Release|x86.ActiveCfg = Release|Any CPU
 		{2DA4B272-55B0-4D72-89EB-C80327A2E003}.Release|x86.Build.0 = Release|Any CPU
-		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Debug|x86.Build.0 = Debug|Any CPU
-		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Release|x86.ActiveCfg = Release|Any CPU
-		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Release|x86.Build.0 = Release|Any CPU
 		{42BB3EBC-5619-42E2-A61E-9330844D69E1}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{42BB3EBC-5619-42E2-A61E-9330844D69E1}.Debug|x86.Build.0 = Debug|Any CPU
 		{42BB3EBC-5619-42E2-A61E-9330844D69E1}.Release|x86.ActiveCfg = Release|Any CPU
 		{42BB3EBC-5619-42E2-A61E-9330844D69E1}.Release|x86.Build.0 = Release|Any CPU
+		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Debug|x86.Build.0 = Debug|Any CPU
+		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Release|x86.ActiveCfg = Release|Any CPU
+		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Release|x86.Build.0 = Release|Any CPU
+		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Debug|x86.Build.0 = Debug|Any CPU
+		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Release|x86.ActiveCfg = Release|Any CPU
+		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = tests\OpenStack.Swift.Unit.Tests\OpenStack.Swift.Unit.Tests.csproj
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = None
+		$1.ResourceNamePolicy = FileFormatDefault
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/x-csharp
+		$3.scope = text/x-csharp
+		$0.TextStylePolicy = $4
+		$4.inheritsSet = null
+		$4.scope = application/xml
+		$0.XmlFormattingPolicy = $5
+		$5.inheritsSet = Mono
+		$5.inheritsScope = application/xml
+		$5.scope = application/xml
+		$0.StandardHeader = $6
+		$6.Text = 
+		$6.IncludeInNewFiles = True
+		$0.VersionControlPolicy = $7
+		$7.inheritsSet = Mono
 		version = 1.0
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

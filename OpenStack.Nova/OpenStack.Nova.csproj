@@ -5,25 +5,24 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2DA4B272-55B0-4D72-89EB-C80327A2E003}</ProjectGuid>
+    <ProjectGuid>{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>OpenStack.Swift.Unit.Tests</RootNamespace>
-    <AssemblyName>OpenStack.Swift.Unit.Tests</AssemblyName>
-    <ReleaseVersion>1.0</ReleaseVersion>
+    <RootNamespace>OpenStack.Nova</RootNamespace>
+    <AssemblyName>OpenStack.Nova</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
+    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,19 +30,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\lib\nunit.framework.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="UnitTests.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="AbstractClient.cs" />
+    <Compile Include="ClientException.cs" />
+    <Compile Include="AuthResponse.cs" />
+    <Compile Include="AccountResponse.cs" />
+    <Compile Include="ContainerResponse.cs" />
+    <Compile Include="ObjectResponse.cs" />
+    <Compile Include="IHttpRequestFactory.cs" />
+    <Compile Include="IHttpRequest.cs" />
+    <Compile Include="IHttpResponse.cs" />
+    <Compile Include="HttpRequest.cs" />
+    <Compile Include="HttpResponse.cs" />
+    <Compile Include="HttpRequestFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\OpenStack.Swift\OpenStack.Swift.csproj">
-      <Project>{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}</Project>
-      <Name>OpenStack.Swift</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
