@@ -1,14 +1,14 @@
-using System;
-using System.Net;
-using System.Net.Security;
-using System.IO;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml;
-using System.Web;
-
 namespace OpenStack.Nova
 {
+	using System;
+	using System.Net;
+	using System.Net.Security;
+	using System.IO;
+	using System.Collections.Generic;
+	using System.Security.Cryptography.X509Certificates;
+	using System.Xml;
+	using System.Web;
+
     /// <summary>
     /// This delegate should be used to signal when <see><cref>Openstack.Swift.Client.PutObject</cref></see> completes uploading an object.
     /// </summary>
