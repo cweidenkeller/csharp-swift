@@ -43,29 +43,32 @@
     <Compile Include="AccountResponse.cs" />
     <Compile Include="ContainerResponse.cs" />
     <Compile Include="ObjectResponse.cs" />
-    <Compile Include="IHttpRequestFactory.cs" />
-    <Compile Include="IHttpRequest.cs" />
-    <Compile Include="IHttpResponse.cs" />
     <Compile Include="HttpRequest.cs" />
     <Compile Include="HttpResponse.cs" />
     <Compile Include="HttpRequestFactory.cs" />
     <Compile Include="NovaClient.cs" />
-    <Compile Include="Resource\Server.cs" />
-    <Compile Include="Resource\Image.cs" />
-    <Compile Include="Resource\Tenant.cs" />
-    <Compile Include="Resource\ImageMetaData.cs" />
-    <Compile Include="Resource\ServerMetaData.cs" />
-    <Compile Include="Resource\Flavor.cs" />
     <Compile Include="Interfaces\IFlavor.cs" />
     <Compile Include="Interfaces\IImage.cs" />
     <Compile Include="Interfaces\IServer.cs" />
     <Compile Include="Interfaces\ITenant.cs" />
     <Compile Include="Interfaces\IImageMetaData.cs" />
     <Compile Include="Interfaces\IServerMetaData.cs" />
+    <Compile Include="Interfaces\INetwork.cs" />
+    <Compile Include="Interfaces\IAPI.cs" />
+    <Compile Include="Interfaces\IHttpRequest.cs" />
+    <Compile Include="Interfaces\IHttpRequestFactory.cs" />
+    <Compile Include="Interfaces\IHttpResponse.cs" />
+    <Compile Include="Response\FlavorResponse.cs" />
+    <Compile Include="Response\ImageResponse.cs" />
+    <Compile Include="Response\ImageMetaDataResponse.cs" />
+    <Compile Include="Response\ServerResponse.cs" />
+    <Compile Include="Response\ServerMetaDataResponse.cs" />
+    <Compile Include="Response\TenantResponse.cs" />
+    <Compile Include="Response\AbstractResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Resource\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Response\" />
   </ItemGroup>
 </Project>

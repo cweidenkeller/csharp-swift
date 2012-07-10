@@ -4,6 +4,7 @@ namespace OpenStack.Nova
 
 	public interface IFlavor
 	{
+		ObjectResponse 
 	}
 }
 
