@@ -6,6 +6,7 @@ namespace OpenStack.Nova
 	{
 		public Flavor ()
 		{
+
 		}
 	}
 }

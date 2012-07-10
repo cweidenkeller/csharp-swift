@@ -56,6 +56,12 @@
     <Compile Include="Resource\ImageMetaData.cs" />
     <Compile Include="Resource\ServerMetaData.cs" />
     <Compile Include="Resource\Flavor.cs" />
+    <Compile Include="Interfaces\IFlavor.cs" />
+    <Compile Include="Interfaces\IImage.cs" />
+    <Compile Include="Interfaces\IServer.cs" />
+    <Compile Include="Interfaces\ITenant.cs" />
+    <Compile Include="Interfaces\IImageMetaData.cs" />
+    <Compile Include="Interfaces\IServerMetaData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
