@@ -5,11 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}</ProjectGuid>
+    <ProjectGuid>{E1B976EA-727B-409B-A86C-FB2342444BB1}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>OpenStack.Nova</RootNamespace>
-    <AssemblyName>OpenStack.Nova</AssemblyName>
-    <ReleaseVersion>1.0</ReleaseVersion>
+    <RootNamespace>OpenStack.Nova.Unit.Tests</RootNamespace>
+    <AssemblyName>OpenStack.Nova.Unit.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,35 +30,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="AbstractClient.cs" />
-    <Compile Include="ClientException.cs" />
-    <Compile Include="AuthResponse.cs" />
-    <Compile Include="AccountResponse.cs" />
-    <Compile Include="ContainerResponse.cs" />
-    <Compile Include="ObjectResponse.cs" />
-    <Compile Include="IHttpRequestFactory.cs" />
-    <Compile Include="IHttpRequest.cs" />
-    <Compile Include="IHttpResponse.cs" />
-    <Compile Include="HttpRequest.cs" />
-    <Compile Include="HttpResponse.cs" />
-    <Compile Include="HttpRequestFactory.cs" />
-    <Compile Include="NovaClient.cs" />
-    <Compile Include="Resource\Server.cs" />
-    <Compile Include="Resource\Image.cs" />
-    <Compile Include="Resource\Tenant.cs" />
-    <Compile Include="Resource\ImageMetaData.cs" />
-    <Compile Include="Resource\ServerMetaData.cs" />
-    <Compile Include="Resource\Flavor.cs" />
+    <Compile Include="UnitTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Resource\" />
-    <Folder Include="Interfaces\" />
+    <Folder Include="test-results\" />
   </ItemGroup>
 </Project>
