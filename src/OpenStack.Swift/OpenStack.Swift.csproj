@@ -37,20 +37,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="AccountResponse.cs" />
-    <Compile Include="AuthResponse.cs" />
-    <Compile Include="ClientException.cs" />
-    <Compile Include="ContainerResponse.cs" />
-    <Compile Include="HttpRequest.cs" />
-    <Compile Include="HttpRequestFactory.cs" />
-    <Compile Include="HttpResponse.cs" />
-    <Compile Include="IHttpRequest.cs" />
-    <Compile Include="IHttpRequestFactory.cs" />
-    <Compile Include="IHttpResponse.cs" />
-    <Compile Include="ObjectResponse.cs" />
-    <Compile Include="BaseResponse.cs" />
     <Compile Include="SwiftClient.cs" />
-    <Compile Include="ISwiftClient.cs" />
+    <Compile Include="Interface\IHttpRequest.cs" />
+    <Compile Include="Interface\IHttpRequestFactory.cs" />
+    <Compile Include="Interface\IHttpResponse.cs" />
+    <Compile Include="Interface\ISwiftClient.cs" />
+    <Compile Include="Model\AccountResponse.cs" />
+    <Compile Include="Model\AuthResponse.cs" />
+    <Compile Include="Model\BaseResponse.cs" />
+    <Compile Include="Model\ContainerResponse.cs" />
+    <Compile Include="Model\ObjectResponse.cs" />
+    <Compile Include="Exception\ClientException.cs" />
+    <Compile Include="Util\HttpRequest.cs" />
+    <Compile Include="Util\HttpRequestFactory.cs" />
+    <Compile Include="Util\HttpResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Interface\" />
+    <Folder Include="Exception\" />
+    <Folder Include="Util\" />
+  </ItemGroup>
 </Project>
