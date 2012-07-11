@@ -4,7 +4,9 @@ namespace OpenStack.Nova
 
 	public interface IFlavor
 	{
-		ObjectResponse 
+		FlavorResponse GetAvailableFlavors();
+		FlavorResponse GetFlavorInfo();
+		FlavorResponse GetFlavorSetInfo();
 	}
 }
 

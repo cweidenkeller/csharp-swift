@@ -37,12 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="AbstractClient.cs" />
     <Compile Include="ClientException.cs" />
-    <Compile Include="AuthResponse.cs" />
-    <Compile Include="AccountResponse.cs" />
-    <Compile Include="ContainerResponse.cs" />
-    <Compile Include="ObjectResponse.cs" />
     <Compile Include="HttpRequest.cs" />
     <Compile Include="HttpResponse.cs" />
     <Compile Include="HttpRequestFactory.cs" />
@@ -64,7 +59,9 @@
     <Compile Include="Response\ServerResponse.cs" />
     <Compile Include="Response\ServerMetaDataResponse.cs" />
     <Compile Include="Response\TenantResponse.cs" />
-    <Compile Include="Response\AbstractResponse.cs" />
+    <Compile Include="Interfaces\INovaClient.cs" />
+    <Compile Include="Response\BaseResponse.cs" />
+    <Compile Include="Response\AuthResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

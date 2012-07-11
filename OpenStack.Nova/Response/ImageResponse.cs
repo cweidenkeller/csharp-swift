@@ -1,10 +1,12 @@
-using System;
 
 namespace OpenStack.Nova
-{
-	public class ImageResponse
+{	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	public class ImageResponse : BaseResponse
 	{
-		public ImageResponse ()
+		public ImageResponse (Dictionary<string, string> headers, string reason, int status) :
+			base ( headers, reason, status)
 		{
 		}
 	}

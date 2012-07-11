@@ -1,10 +1,13 @@
-using System;
-
 namespace OpenStack.Nova
 {
-	public class ServerMetaDataResponse
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+
+	public class ServerMetaDataResponse : BaseResponse
 	{
-		public ServerMetaDataResponse ()
+		public ServerMetaDataResponse (Dictionary<string, string> headers, string reason, int status):
+			base ( headers, reason, status)
 		{
 		}
 	}

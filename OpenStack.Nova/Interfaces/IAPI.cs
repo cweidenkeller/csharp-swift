@@ -8,7 +8,7 @@ namespace OpenStack.Nova
 	{
 		public IAPI ()
 		{
-			ApiInfoResponse Get
+
 		}
 	}
 }

@@ -22,7 +22,7 @@ namespace OpenStack.Nova
 	/// <summary>
 	/// Client.
 	/// </summary>
-	public class NovaClient : Client
+	public class NovaClient : INovaClient
 	{
 		/// <summary>
 		/// Used to configure the http response timeout.
@@ -72,7 +72,7 @@ namespace OpenStack.Nova
 		/// <summary>
 		/// Disables SSL certificate validation.
 		/// </summary>
-		public override void DisableSSLCertificateValidation()
+		public void DisableSSLCertificateValidation()
 		{
             ServicePointManager.ServerCertificateValidationCallback = _validator;	
 		}
@@ -100,7 +100,7 @@ namespace OpenStack.Nova
 	    /// <param name='snet'>
 	    /// <see cref="System.Boolean"/> 
 	    /// </param>
-	    public override AuthResponse GetAuth(string url, string user, string key, Dictionary<string, string> headers, Dictionary<string, string> query, bool snet)
+	    public AuthResponse GetAuth(string url, string user, string key, Dictionary<string, string> headers, Dictionary<string, string> query, bool snet)
 		{
 			headers["X-Auth-User"] = user;
 			headers["X-Auth-Key"] = key;
@@ -136,7 +136,7 @@ namespace OpenStack.Nova
 		/// <param name='full_listing'>
 		/// Full_listing.
 		/// </param>
-		public override AccountResponse GetAccount(string url, string token, Dictionary<string, string> headers, Dictionary<string, string> query, bool full_listing)
+		public AccountResponse GetAccount(string url, string token, Dictionary<string, string> headers, Dictionary<string, string> query, bool full_listing)
 		{
 			headers["X-Auth-Token"] = token;
 			query["format"] = "xml";
@@ -207,7 +207,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Query.
 		/// </param>
-		public override AccountResponse HeadAccount(string url, string token, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public AccountResponse HeadAccount(string url, string token, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("HEAD", url, headers, query);
@@ -233,7 +233,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Query.
 		/// </param>
-		public override AccountResponse PostAccount(string url, string token, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public AccountResponse PostAccount(string url, string token, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("POST", url, headers, query);
@@ -265,7 +265,7 @@ namespace OpenStack.Nova
 		/// <param name='full_listing'>
 		/// Full_listing.
 		/// </param>
-		public override ContainerResponse GetContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query, bool full_listing)
+		public ContainerResponse GetContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query, bool full_listing)
 		{
 			headers["X-Auth-Token"] = token;
 			query["format"] = "xml";
@@ -338,7 +338,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Any custom query strings needed for the request
 		/// </param>
-		public override ContainerResponse HeadContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public ContainerResponse HeadContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("HEAD", url + "/" + _encode(container), headers, query);
@@ -367,7 +367,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Any custom query strings needed for the request
 		/// </param>
-		public override ContainerResponse PutContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public ContainerResponse PutContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("PUT", url + "/"  + _encode(container), headers, query);
@@ -396,7 +396,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Any custom query strings needed for the request
 		/// </param>
-		public override ContainerResponse PostContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public ContainerResponse PostContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("POST", url + '/' + _encode(container), headers, query);
@@ -425,7 +425,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Any custom query strings needed for the request
 		/// </param>
-		public override ContainerResponse DeleteContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public ContainerResponse DeleteContainer(string url, string token, string container, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("DELETE", url + '/' + _encode(container), headers, query);
@@ -457,7 +457,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Any custom query strings needed for the request
 		/// </param>
-		public override ObjectResponse GetObject(string url, string token, string container, string name, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public ObjectResponse GetObject(string url, string token, string container, string name, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
             headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("GET", url + '/' + _encode(container) + '/' + _encode(name), headers, query);
@@ -488,7 +488,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Any custom query strings needed for the request
 		/// </param>
-		public override ObjectResponse HeadObject(string url, string token, string container, string name, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public ObjectResponse HeadObject(string url, string token, string container, string name, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("HEAD", url + '/' + _encode(container) + '/' + _encode(name), headers, query);
@@ -520,7 +520,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Any custom query strings needed for the request
 		/// </param>
-		public override ObjectResponse PostObject(string url, string token, string container, string name, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public ObjectResponse PostObject(string url, string token, string container, string name, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("POST", url + '/' + _encode(container) + '/' + _encode(name), headers, query);
@@ -556,7 +556,7 @@ namespace OpenStack.Nova
 	    /// <param name='query'>
 	    /// Any custom query strings needed for the request
 	    /// </param>
-	    public override ObjectResponse PutObject(string url, string token, string container, string name, Stream contents, Dictionary<string, string> headers, Dictionary<string, string> query)
+	    public ObjectResponse PutObject(string url, string token, string container, string name, Stream contents, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			var total_length = 0;
 			headers["X-Auth-Token"] = token;
@@ -615,7 +615,7 @@ namespace OpenStack.Nova
 		/// <param name='query'>
 		/// Any custom query strings needed for the request
 		/// </param>
-		public override ObjectResponse DeleteObject(string url, string token, string container, string name, Dictionary<string, string> headers, Dictionary<string, string> query)
+		public ObjectResponse DeleteObject(string url, string token, string container, string name, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 			headers["X-Auth-Token"] = token;
 			IHttpRequest request = _http_factory.GetHttpRequest("DELETE", url + '/' + _encode(container) + '/' + _encode(name), headers, query);
