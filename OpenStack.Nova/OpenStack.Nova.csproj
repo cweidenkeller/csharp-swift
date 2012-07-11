@@ -67,5 +67,6 @@
   <ItemGroup>
     <Folder Include="Interfaces\" />
     <Folder Include="Response\" />
+    <Folder Include="Request\" />
   </ItemGroup>
 </Project>
