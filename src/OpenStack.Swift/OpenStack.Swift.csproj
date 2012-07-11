@@ -37,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="AbstractClient.cs" />
     <Compile Include="AccountResponse.cs" />
     <Compile Include="AuthResponse.cs" />
     <Compile Include="ClientException.cs" />
@@ -51,6 +50,7 @@
     <Compile Include="ObjectResponse.cs" />
     <Compile Include="BaseResponse.cs" />
     <Compile Include="SwiftClient.cs" />
+    <Compile Include="ISwiftClient.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
