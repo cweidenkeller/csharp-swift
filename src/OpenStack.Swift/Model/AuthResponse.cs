@@ -22,8 +22,7 @@ namespace OpenStack.Swift
 	    /// Response status from the server.
 	    /// </param>
 	    public AuthResponse(Dictionary<string, string> headers, string reason, int status) :
-			base(headers, status, reason)
-			       
+			base(headers, status, reason)			       
 		{
 		}
 	}

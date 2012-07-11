@@ -5,7 +5,7 @@ namespace OpenStack.Swift
 	using System.Collections.Generic;
 
 	/// <summary>
-	/// I client.
+	/// Methods that all SwiftClient shall implement.
 	/// </summary>
 	public interface ISwiftClient
 	{

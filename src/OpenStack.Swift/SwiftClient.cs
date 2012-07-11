@@ -28,7 +28,6 @@ namespace OpenStack.Swift
 		/// Used to configure the http response timeout.
 		/// </summary>
 		public int Timeout = 50000;
-
 	    /// <summary>
 	    /// Set for chunk sizes on <see><cref>Openstack.Swift.Client.PutObject</cref></see> and <see><cref>Openstack.Swift.Client.GetObject</cref></see> .
 	    /// </summary>
