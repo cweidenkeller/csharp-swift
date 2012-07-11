@@ -51,6 +51,13 @@ namespace OpenStack.Swift
 			_http_factory = new HttpRequestFactory();
 		}
 
+		public SwiftClient(int timeout, int chunkSize) 
+		{
+			Timeout = timeout;
+			ChunkSize = chunkSize;
+			_http_factory = new HttpRequestFactory();
+
+		}
 	    /// <summary>
 	    /// Initializes a new instance of the <see><cref>Openstack.Swift.Client</cref></see> class.
 	    /// </summary>
