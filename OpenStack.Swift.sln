@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		csharp-swift.nuspec = csharp-swift.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack.Nova", "OpenStack.Nova\OpenStack.Nova.csproj", "{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack.Nova.Unit.Tests", "OpenStack.Nova.Unit.Tests\OpenStack.Nova.Unit.Tests.csproj", "{E1B976EA-727B-409B-A86C-FB2342444BB1}"
 EndProject
 Global
@@ -31,10 +29,6 @@ Global
 		{42BB3EBC-5619-42E2-A61E-9330844D69E1}.Debug|x86.Build.0 = Debug|Any CPU
 		{42BB3EBC-5619-42E2-A61E-9330844D69E1}.Release|x86.ActiveCfg = Release|Any CPU
 		{42BB3EBC-5619-42E2-A61E-9330844D69E1}.Release|x86.Build.0 = Release|Any CPU
-		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Debug|x86.Build.0 = Debug|Any CPU
-		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Release|x86.ActiveCfg = Release|Any CPU
-		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Release|x86.Build.0 = Release|Any CPU
 		{E1B976EA-727B-409B-A86C-FB2342444BB1}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{E1B976EA-727B-409B-A86C-FB2342444BB1}.Debug|x86.Build.0 = Debug|Any CPU
 		{E1B976EA-727B-409B-A86C-FB2342444BB1}.Default|Any CPU.ActiveCfg = Debug|Any CPU
