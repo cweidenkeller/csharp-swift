@@ -1,0 +1,18 @@
+<?xml version='1.0'?>
+  <package xmlns='http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd'>
+    <metadata>
+      <id>OpenStack.Swift</id>
+      <version>1.0.2</version>
+      <title>OpenStack.Swift</title>
+      <authors>Conrad Weidenkeller</authors>
+      <description>A light http wrapper for the swift API implemented in C#</description>
+      <licenseUrl>http://github.com/cweidenkeller/csharp-swift/blob/master/LICENSE</licenseUrl>
+      <projectUrl>http://github.com/edwardt/OpenStack.Swift.git</projectUrl>
+      <copyright>Copyright (c) 2011, 2012, Conrad Weidenkeller.  All Rights Reserved</copyright>
+      <owners>Conrad Weidenkeller, Jason Meridth, Edward Tsang</owners>
+      <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    </metadata>
+    <files>
+      <file src='src\OpenStack.Swift\bin\Debug\OpenStack.Swift.dll' target='lib\net40\OpenStack.Swift.dll'/>
+    </files>
+  </package>

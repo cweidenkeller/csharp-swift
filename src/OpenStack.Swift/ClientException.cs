@@ -1,4 +1,4 @@
-namespace OpenStack.Nova
+namespace OpenStack.Swift
 {
 	using System;
 

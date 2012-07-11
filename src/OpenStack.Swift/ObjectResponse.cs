@@ -1,4 +1,4 @@
-namespace OpenStack.Nova
+namespace OpenStack.Swift
 {
 	using System;
 	using System.Collections.Generic;
@@ -7,20 +7,8 @@ namespace OpenStack.Nova
 	/// <summary>
 	/// Used for object responses
 	/// </summary>
-	public class ObjectResponse
+	public class ObjectResponse : BaseResponse
 	{
-		/// <summary>
-		/// Headers from the object request
-		/// </summary>
-	    public readonly Dictionary<string, string> Headers;
-		/// <summary>
-		/// The status code of the request
-		/// </summary>
-		public readonly int Status;
-		/// <summary>
-		/// The response reason of the request
-		/// </summary>
-		public readonly string Reason;
 		/// <summary>
 		/// A Stream of the object data only used for get requests
 		/// </summary>
@@ -41,11 +29,9 @@ namespace OpenStack.Nova
 	    /// <param name='object_data'>
 	    /// A stream of object data will be null if not a get request
 	    /// </param>
-	    public ObjectResponse(Dictionary<string, string> headers, string reason, int status, Stream object_data)
+	    public ObjectResponse(Dictionary<string, string> headers, string reason, int status, Stream object_data) :
+			 base(headers, status, reason)
 		{
-			Headers = headers;
-			Status = status;
-			Reason = reason;
 			ObjectData = object_data;
 		}
 	}

@@ -1,4 +1,4 @@
-namespace OpenStack.Nova
+namespace OpenStack.Swift
 {
 	using System;
 	using System.Collections.Generic;
@@ -6,20 +6,9 @@ namespace OpenStack.Nova
 	/// <summary>
 	/// An object containing AccountResponse information
 	/// </summary>
-	public class AccountResponse
+	public class AccountResponse : BaseResponse
 	{
-		/// <summary>
-		/// Account Headers
-		/// </summary>
-	    public readonly Dictionary<string, string> Headers;
-		/// <summary>
-		/// the Status number of the request
-		/// </summary>
-		public readonly int Status;
-		/// <summary>
-		/// The status description of the request
-		/// </summary>
-		public readonly string Reason;
+
 		/// <summary>
 		/// The container list returned if a get request otherwise this will be null
 		/// </summary>
@@ -39,11 +28,9 @@ namespace OpenStack.Nova
 		/// <param name='containers'>
 		/// The Container List if one is needed null otherwise
 		/// </param>
-	    public AccountResponse(Dictionary<string, string> headers, string reason, int status, List<Dictionary<string, string>> containers)
+	    public AccountResponse(Dictionary<string, string> headers, string reason, int status, List<Dictionary<string, string>> containers):
+			base(headers, status, reason)
 		{
-			Headers = headers;
-			Status = status;
-			Reason = reason;
 			Containers = containers;
 		}
 	}

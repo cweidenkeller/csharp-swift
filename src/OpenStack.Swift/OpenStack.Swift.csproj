@@ -49,8 +49,8 @@
     <Compile Include="IHttpRequestFactory.cs" />
     <Compile Include="IHttpResponse.cs" />
     <Compile Include="ObjectResponse.cs" />
+    <Compile Include="BaseResponse.cs" />
     <Compile Include="SwiftClient.cs" />
-    <Compile Include="Client.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
