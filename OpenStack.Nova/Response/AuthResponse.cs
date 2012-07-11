@@ -6,7 +6,7 @@ namespace OpenStack.Nova
 	/// <summary>
 	/// An Object that holds auth information
 	/// </summary>
-	public class AuthResponse
+	public class AuthResponse : BaseResponse
 	{
 
 	    /// <summary>
