@@ -14,13 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack.Nova", "OpenStack.Nova\OpenStack.Nova.csproj", "{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack.Nova.Unit.Tests", "OpenStack.Nova.Unit.Tests\OpenStack.Nova.Unit.Tests.csproj", "{E1B976EA-727B-409B-A86C-FB2342444BB1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
-		Default|Any CPU = Default|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2DA4B272-55B0-4D72-89EB-C80327A2E003}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -35,12 +32,6 @@ Global
 		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Debug|x86.Build.0 = Debug|Any CPU
 		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Release|x86.ActiveCfg = Release|Any CPU
 		{9B1E8C12-D57A-4DE7-BE74-E6063E98D433}.Release|x86.Build.0 = Release|Any CPU
-		{E1B976EA-727B-409B-A86C-FB2342444BB1}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E1B976EA-727B-409B-A86C-FB2342444BB1}.Debug|x86.Build.0 = Debug|Any CPU
-		{E1B976EA-727B-409B-A86C-FB2342444BB1}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1B976EA-727B-409B-A86C-FB2342444BB1}.Default|Any CPU.Build.0 = Debug|Any CPU
-		{E1B976EA-727B-409B-A86C-FB2342444BB1}.Release|x86.ActiveCfg = Release|Any CPU
-		{E1B976EA-727B-409B-A86C-FB2342444BB1}.Release|x86.Build.0 = Release|Any CPU
 		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Debug|x86.Build.0 = Debug|Any CPU
 		{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}.Release|x86.ActiveCfg = Release|Any CPU

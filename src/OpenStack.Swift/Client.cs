@@ -2,12 +2,8 @@ using System;
 
 namespace OpenStack.Swift
 {
-	public abstract class Client : ISwiftClient
+	public abstract class AbstractClient : ISwiftClient
 	{
-		public Client ()
-		{
-		}
-
 		#region ISwiftClient implementation
 		public abstract AuthResponse GetAuth (string url, string user, string key, System.Collections.Generic.Dictionary<string, string> headers, System.Collections.Generic.Dictionary<string, string> query, bool snet); 
 
