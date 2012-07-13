@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>OpenStack.Swift</RootNamespace>
     <AssemblyName>OpenStack.Swift</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ReleaseVersion>1.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -38,7 +37,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Client.cs" />
+    <Compile Include="SwiftClient.cs" />
+    <Compile Include="Interface\IHttpRequest.cs" />
+    <Compile Include="Interface\IHttpRequestFactory.cs" />
+    <Compile Include="Interface\IHttpResponse.cs" />
+    <Compile Include="Interface\ISwiftClient.cs" />
+    <Compile Include="Model\AccountResponse.cs" />
+    <Compile Include="Model\AuthResponse.cs" />
+    <Compile Include="Model\BaseResponse.cs" />
+    <Compile Include="Model\ContainerResponse.cs" />
+    <Compile Include="Model\ObjectResponse.cs" />
+    <Compile Include="Exception\ClientException.cs" />
+    <Compile Include="Util\HttpRequest.cs" />
+    <Compile Include="Util\HttpRequestFactory.cs" />
+    <Compile Include="Util\HttpResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Interface\" />
+    <Folder Include="Exception\" />
+    <Folder Include="Util\" />
+  </ItemGroup>
 </Project>
