@@ -51,6 +51,7 @@
     <Compile Include="Util\HttpRequest.cs" />
     <Compile Include="Util\HttpRequestFactory.cs" />
     <Compile Include="Util\HttpResponse.cs" />
+    <Compile Include="Client.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

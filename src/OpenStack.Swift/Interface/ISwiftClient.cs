@@ -9,7 +9,7 @@ namespace OpenStack.Swift
 	/// </summary>
 	public interface ISwiftClient
 	{
-		void DisableSSLCertificateValidation();
+	//	void DisableSSLCertificateValidation();
 		AuthResponse GetAuth(string url, string user, string key, Dictionary<string, string> headers, Dictionary<string, string> query, bool snet);
 		AccountResponse GetAccount(string url, string token, Dictionary<string, string> headers, Dictionary<string, string> query, bool full_listing);
 		AccountResponse HeadAccount(string url, string token, Dictionary<string, string> headers, Dictionary<string, string> query);

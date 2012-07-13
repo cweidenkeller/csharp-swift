@@ -6,6 +6,7 @@ namespace OpenStack.Swift
 	using System.Net;
 	using System.Web;
 
+
 	public class HttpRequest : IHttpRequest
 	{
 	    private const int MillisecondsInOneHour = 60 * 60 * 1000;
@@ -31,6 +32,7 @@ namespace OpenStack.Swift
             get { return _request.Timeout; }
 	    }
 		private readonly HttpWebRequest _request;
+
 		public HttpRequest(string method, string url, Dictionary<string, string> headers, Dictionary<string, string> query)
 		{
 		    var uriQuery = query != null && query.Count > 0 ? _add_query(query) : "";
@@ -78,6 +80,8 @@ namespace OpenStack.Swift
 			}
 		    return query_string;
 		}
+
+	
 	    private void _add_headers(Dictionary<string, string> headers)
 		{
 			foreach (var header in headers)
