@@ -5,9 +5,11 @@ namespace OpenStack.Swift
 	public abstract class AbstractClient : ISwiftClient
 	{
 		#region ISwiftClient implementation
+		public abstract void DisableSSLCertificateValidation();
+
 		public abstract AuthResponse GetAuth (string url, string user, string key, System.Collections.Generic.Dictionary<string, string> headers, System.Collections.Generic.Dictionary<string, string> query, bool snet); 
 
-		public abstract  AccountResponse GetAccount (string url, string token, System.Collections.Generic.Dictionary<string, string> headers, System.Collections.Generic.Dictionary<string, string> query, bool full_listing);
+		public abstract AccountResponse GetAccount (string url, string token, System.Collections.Generic.Dictionary<string, string> headers, System.Collections.Generic.Dictionary<string, string> query, bool full_listing);
 	
 		public abstract AccountResponse HeadAccount (string url, string token, System.Collections.Generic.Dictionary<string, string> headers, System.Collections.Generic.Dictionary<string, string> query);
 	

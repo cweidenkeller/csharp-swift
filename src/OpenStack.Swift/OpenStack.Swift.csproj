@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>OpenStack.Swift</RootNamespace>
     <AssemblyName>OpenStack.Swift</AssemblyName>
-    <ReleaseVersion>1.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,7 +50,6 @@
     <Compile Include="Util\HttpRequest.cs" />
     <Compile Include="Util\HttpRequestFactory.cs" />
     <Compile Include="Util\HttpResponse.cs" />
-    <Compile Include="Client.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
