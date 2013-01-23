@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using NUnit.Framework;
+using System;
 
 namespace OpenStack.Swift.Unit.Tests
 {
@@ -305,7 +306,8 @@ namespace OpenStack.Swift.Unit.Tests
 	}
     public class FakeHttpRequestFactory : IHttpRequestFactory
     {
-        public IHttpRequest GetHttpRequest(string method, string url, Dictionary<string, string> headers, Dictionary<string, string> query)
+        public IHttpRequest GetHttpRequest(string method, string url, 
+            Dictionary<string, string> headers=null, Dictionary<string, string> query=null, Tuple<long,long> byteRange=null)
         {
           return new FakeHttpRequest(method, headers);
         }
