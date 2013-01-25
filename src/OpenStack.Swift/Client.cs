@@ -162,7 +162,7 @@ namespace OpenStack.Swift
 		public override AccountResponse GetAccount(string url, string token, Dictionary<string, string> headers=null, Dictionary<string, string> query=null, bool full_listing=false)
 		{
             headers = AddAuthToken(token, headers);
-            query = AddQueryParam(query, "format", "xml");
+            query = AddValue(query, "format", "xml");
 			var request = _http_factory.GetHttpRequest("GET", url, headers, query);
 			var response = request.GetResponse();
 			var reader = new XmlTextReader(response.ResponseStream);
@@ -196,7 +196,7 @@ namespace OpenStack.Swift
 			    do
 				{
 					var nmarker = containers.Count - 1;
-                    query = AddQueryParam(query, "marker", containers[nmarker]["name"]);
+                    query = AddValue(query, "marker", containers[nmarker]["name"]);
 					var tmp = GetAccount(url, token, headers, query, false);
 				    if ((tmp.Containers).Count > 0)
 					{
@@ -213,10 +213,10 @@ namespace OpenStack.Swift
 			return new AccountResponse(response.Headers, response.Reason, response.Status, containers);
 		}
 
-        private static Dictionary<string, string> AddQueryParam(Dictionary<string, string> query,
+        private static Dictionary<string, string> AddValue(Dictionary<string, string> query,
             string name, string value)
         {
-            query = new Dictionary<string, string>(query);
+            query = query == null ? new Dictionary<string, string>() : new Dictionary<string, string>(query);
             query[_encode(name)] = _encode(value);
             return query;
         }
@@ -314,7 +314,7 @@ namespace OpenStack.Swift
         public override ContainerResponse GetContainer(string url, string token, string container, Dictionary<string, string> headers = null, Dictionary<string, string> query = null, bool full_listing = false)
 		{
             headers = AddAuthToken(token, headers);
-            query = AddQueryParam(query, "format", "xml");
+            query = AddValue(query, "format", "xml");
 			var request = _http_factory.GetHttpRequest("GET", url + "/" + _encode(container), headers, query);
 			var response = request.GetResponse();
 			var reader = new XmlTextReader(response.ResponseStream);
@@ -348,7 +348,7 @@ namespace OpenStack.Swift
 			    do
 				{
 				    var nmarker = objects.Count - 1;
-                    query = AddQueryParam(query, "marker", objects[nmarker].ContainsKey("name") ? objects[nmarker]["name"] : objects[nmarker]["subdir"]);
+                    query = AddValue(query, "marker", objects[nmarker].ContainsKey("name") ? objects[nmarker]["name"] : objects[nmarker]["subdir"]);
 					var tmp = GetContainer(url, token, container, headers, query, false);
 				    if (tmp.Objects.Count > 0)
 					{
@@ -640,6 +640,51 @@ namespace OpenStack.Swift
 			response.Close();
 			return new ObjectResponse(response.Headers, response.Reason, response.Status, null);
 		}
+        
+        /// <summary>
+        /// Puts an object manifest representing an object that has been uploaded in parts.
+        /// </summary>
+        /// <returns>
+        /// A <see name="Openstack.Swift.ObjectResponse"/>
+        /// </returns>
+        /// <param name='url'>
+        /// The storage Url
+        /// </param>
+        /// <param name='token'>
+        /// The Auth Token
+        /// </param>
+        /// <param name='container'>
+        /// The container name
+        /// </param>
+        /// <param name='name'>
+        /// The name of the object
+        /// </param>
+        /// <param name="pin">
+        /// The value of the X-Object-Meta-PIN header
+        /// </param>
+        /// <param name="Manifest">
+        /// The value of the X-Object-Meta-Manifest header
+        /// </param>
+        /// <param name='headers'>
+        /// Any custom headers needed for the request
+        /// </param>
+        /// <param name='query'>
+        /// Any custom query strings needed for the request
+        /// </param>
+        public override ObjectResponse PutObjectManifest(string url, string token, string container,
+            string name, string pin, string manifest, Dictionary<string, string> headers = null,
+            Dictionary<string, string> query = null)
+        {
+            headers = AddAuthToken(token, headers);
+            headers = AddValue(headers, "X-Object-Meta-PIN", pin);
+            headers = AddValue(headers, "X-Object-Manifest", manifest);
+            headers = AddValue(headers, "Content-Length", "0");
+
+            var request = _http_factory.GetHttpRequest("PUT", url + '/' + _encode(container) + '/' + _encode(name), headers, query);
+            var response = request.GetResponse();
+            response.Close();
+            return new ObjectResponse(response.Headers, response.Reason, response.Status, null);
+        }
 		/// <summary>
 		/// Deletes the object.
 		/// </summary>
@@ -692,6 +737,7 @@ namespace OpenStack.Swift
 		public abstract ObjectResponse HeadObject(string url, string token, string container, string name, Dictionary<string, string> headers=null, Dictionary<string, string> query=null);
         public abstract ObjectResponse PostObject(string url, string token, string container, string name, Dictionary<string, string> headers = null, Dictionary<string, string> query = null);
 		public abstract ObjectResponse PutObject(string url, string token, string container, string name, Stream contents, Dictionary<string, string> headers=null, Dictionary<string, string> query=null, bool closeContentsStream=true);
+        public abstract ObjectResponse PutObjectManifest(string url, string token, string container, string name, string pin, string manifest, Dictionary<string, string> headers = null, Dictionary<string, string> query = null);
 		public abstract ObjectResponse DeleteObject(string url, string token, string container, string name, Dictionary<string, string> headers=null, Dictionary<string, string> query=null);
 		
 	}
