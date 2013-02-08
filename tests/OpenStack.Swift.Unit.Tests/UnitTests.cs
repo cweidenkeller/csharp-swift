@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using NUnit.Framework;
+using System;
 
 namespace OpenStack.Swift.Unit.Tests
 {
@@ -287,6 +288,13 @@ namespace OpenStack.Swift.Unit.Tests
 			var stream = new MemoryStream();
 			_client.PutObject("", "", "", "", stream, _headers, new Dictionary<string, string>());
 		}
+        [Test]
+        public void test_put_object_manifest()
+        {
+            _headers.Add("request-type", "object-manifest");
+            ObjectResponse res = _client.PutObjectManifest("", "", "", "", "pin", "manifest", _headers);
+            Assert.True(res.Status == 201);
+        }
 		[Test]
 		public void test_delete_object()
 		{
@@ -305,7 +313,8 @@ namespace OpenStack.Swift.Unit.Tests
 	}
     public class FakeHttpRequestFactory : IHttpRequestFactory
     {
-        public IHttpRequest GetHttpRequest(string method, string url, Dictionary<string, string> headers, Dictionary<string, string> query)
+        public IHttpRequest GetHttpRequest(string method, string url, 
+            Dictionary<string, string> headers=null, Dictionary<string, string> query=null, Tuple<long,long> byteRange=null)
         {
           return new FakeHttpRequest(method, headers);
         }
@@ -408,7 +417,7 @@ namespace OpenStack.Swift.Unit.Tests
 					        _stream = _to_stream("foo");
 				            break;
 				        }
-				        case "object-fail":
+                        case "object-fail":
 				        {
 					        throw new ClientException("I am a teapot", 418);
 				        }
@@ -555,6 +564,11 @@ namespace OpenStack.Swift.Unit.Tests
 					        _status = 201;
 				            break;
 				        }
+                        case "object-manifest":
+                        {
+                            _status = 201;
+                            break;
+                        }
 				        case "object-fail":
 				        {
 					        throw new ClientException("I am a teapot", 418);

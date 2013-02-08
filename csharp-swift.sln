@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack.Swift.Unit.Tests", "tests\OpenStack.Swift.Unit.Tests\OpenStack.Swift.Unit.Tests.csproj", "{2DA4B272-55B0-4D72-89EB-C80327A2E003}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack.Swift", "src\OpenStack.Swift\OpenStack.Swift.csproj", "{FB1A48EB-3384-4092-BE4C-6641AEFCBB26}"
@@ -10,6 +10,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01E70F4A-74B1-4665-9331-F5E2BF9F5503}"
 	ProjectSection(SolutionItems) = preProject
 		csharp-swift.nuspec = csharp-swift.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C51935B8-BD1E-4F36-925A-C70CE9F5FA70}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
 Global
