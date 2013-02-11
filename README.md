@@ -1,3 +1,7 @@
 A light http wrapper for the swift API implemented in C#
 
-![Install-Pacakage csharp-swift](https://s3.amazonaws.com/github_readme_images/nuget-csharp-swift.PNG)
+## DEPRECATED
+
+This project is deprecated.  It is being rewritten [here](https://github.com/rackspace/openstack.net/).
+
+Look [here](https://github.com/rackspace/openstack.net/wiki/Feature-Support) for the current list of feature implemented.
